@@ -1,0 +1,50 @@
+﻿@page
+@model SIprojekat.Pages.ZadatakPages.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Zadatak</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Zadatak.Predmet)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Zadatak.Predmet.ID)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Zadatak.Oblast)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Zadatak.Oblast.ID)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Zadatak.NivoTezine)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Zadatak.NivoTezine.ID)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Zadatak.Pitanje)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Zadatak.Pitanje)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Zadatak.Image)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Zadatak.Image)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.Zadatak?.ID">Edit</a> |
+    <a asp-page="./Zadaci">Back to List</a>
+</div>

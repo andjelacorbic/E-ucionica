@@ -1,0 +1,37 @@
+﻿@page
+@model SIprojekat.Pages.NivoTezinePages.NivoTezineModel
+
+@{
+    ViewData["Title"] = "Nivoi zadataka";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+<h1>Težine zadataka</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.NivoTezine[0].Tezina)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.NivoTezine) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Tezina)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.ID">Izmeni</a> |
+                <a asp-page="./Details" asp-route-id="@item.ID">Detalji</a> |
+                <a asp-page="./Delete" asp-route-id="@item.ID">Obriši</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

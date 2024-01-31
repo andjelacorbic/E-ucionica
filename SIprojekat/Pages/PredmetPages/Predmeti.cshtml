@@ -1,0 +1,49 @@
+﻿@page
+@model SIprojekat.Pages.PredmetPages.PredmetModel
+
+@{
+    ViewData["Title"] = "Predmeti";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+<h1>Predmet</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Predmet[0].Naziv)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Predmet[0].Profesor)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Predmet[0].Razred)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Predmet) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Naziv)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Profesor)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Razred)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.ID">Izmeni</a> |
+                <a asp-page="./Details" asp-route-id="@item.ID">Detalji</a> |
+                <a asp-page="./Delete" asp-route-id="@item.ID">Obriši</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

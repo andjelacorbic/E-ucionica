@@ -1,0 +1,46 @@
+﻿@page
+@model SIprojekat.Pages.PredmetPages.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+<h1>Edit</h1>
+
+<h4>Predmet</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Predmet.ID" />
+            <div class="form-group">
+                <label asp-for="Predmet.Naziv" class="control-label"></label>
+                <input asp-for="Predmet.Naziv" class="form-control" />
+                <span asp-validation-for="Predmet.Naziv" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Predmet.Profesor" class="control-label"></label>
+                <input asp-for="Predmet.Profesor" class="form-control" />
+                <span asp-validation-for="Predmet.Profesor" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Predmet.Razred" class="control-label"></label>
+                <input asp-for="Predmet.Razred" class="form-control" />
+                <span asp-validation-for="Predmet.Razred" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Predmeti">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

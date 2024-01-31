@@ -1,0 +1,32 @@
+﻿@page
+@model SIprojekat.Pages.OblastPages.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Oblast</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Oblast.NazivOblasti)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Oblast.NazivOblasti)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Oblast.Predmet)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Oblast.Predmet.ID)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.Oblast?.ID">Edit</a> |
+    <a asp-page="./Oblasti">Back to List</a>
+</div>

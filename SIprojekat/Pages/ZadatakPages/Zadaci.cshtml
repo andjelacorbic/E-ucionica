@@ -1,0 +1,71 @@
+﻿@page
+@model SIprojekat.Pages.ZadatakPages.ZadatakModel
+
+@{
+    ViewData["Title"] = "Zadaci";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+<h1>Zadaci</h1>
+
+<p>
+    <a asp-page="Create">Dodaj novi zadatak</a>
+</p>
+
+<form method="post">
+    <input type="text" asp-for="SearchText">
+    <input type="submit" value="Pretraži oblast">
+</form>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Zadatak[0].Predmet)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Zadatak[0].Oblast)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Zadatak[0].NivoTezine)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Zadatak[0].Pitanje)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Zadatak[0].Image)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Zadatak) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Predmet.Naziv)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Oblast.NazivOblasti)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NivoTezine.Tezina)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Pitanje)
+            </td>
+            <td>
+                    @if (item.Image != null)
+                    {
+                        <img class="block" src="~/Images/@item.Image" alt="" width="50" height="auto" />
+                    }
+                    @*@Html.DisplayFor(modelItem => item.DateOfBirth)*@
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.ID">Izmeni</a> |
+                <a asp-page="./Details" asp-route-id="@item.ID">Detalji</a> |
+                <a asp-page="./Delete" asp-route-id="@item.ID">Obriši</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

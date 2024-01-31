@@ -1,0 +1,57 @@
+﻿@page
+@model SIprojekat.Pages.ZadatakPages.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+<h1>Create</h1>
+
+<h4>Zadatak</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Zadatak.PredmetID" class="control-label"></label>
+                <select asp-for="Zadatak.PredmetID" class ="form-control" asp-items="ViewBag.PredmetID"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Zadatak.OblastID" class="control-label"></label>
+                <select asp-for="Zadatak.OblastID" class ="form-control" asp-items="ViewBag.OblastID"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Zadatak.TezinaID" class="control-label"></label>
+                <select asp-for="Zadatak.TezinaID" class ="form-control" asp-items="ViewBag.TezinaID"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Zadatak.Pitanje" class="control-label"></label>
+                <input asp-for="Zadatak.Pitanje" class="form-control" />
+                <span asp-validation-for="Zadatak.Pitanje" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Zadatak.Image" class="control-label"></label>
+                <input asp-for="Zadatak.Image" class="form-control" />
+                <span asp-validation-for="Zadatak.Image" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="file" asp-for="Upload" class="form-control" method="post" />
+                <span asp-validation-for="Upload" class="text-danger"></span>
+            </div>
+            
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Zadaci">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
